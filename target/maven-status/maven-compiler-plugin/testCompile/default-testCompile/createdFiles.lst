@@ -1,0 +1,3 @@
+atc\hrms\api\ProductDetailsRunner.class
+atc\hrms\api\steps\serenity\ProductDetailsSteps.class
+atc\hrms\api\steps\ProductDetailsStepDefinition.class

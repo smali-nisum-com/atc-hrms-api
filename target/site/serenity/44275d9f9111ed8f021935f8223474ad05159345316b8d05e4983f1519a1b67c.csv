@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"hrms holidays data","hrms holidays module","SUCCESS","2018-01-18T17:50:56.247+05:00[Asia/Karachi]","0.0","6.17"
+"hrms user authentication","user authentication on hrms","SUCCESS","2018-01-18T17:51:02.423+05:00[Asia/Karachi]","0.0","0.68"
+"hrms user profile","user profile on hrms","SUCCESS","2018-01-18T17:51:03.111+05:00[Asia/Karachi]","0.0","0.41"
