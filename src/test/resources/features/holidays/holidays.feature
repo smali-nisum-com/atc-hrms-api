@@ -9,4 +9,4 @@ Feature: hrms holidays data
 
     Examples:
       | endpoint        | statuscode |
-      | /api/v1/holidays | 200        |
+      | /secure/holidays | 200        |

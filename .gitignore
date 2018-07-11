@@ -1,5 +1,0 @@
-target/test-classes/json/auth.json
-target/test-classes/credentials.properties
-target/classes/propertyreader/PropertyReader.class
-.idea/kotlinc.xml
-target

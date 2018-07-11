@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
  * Created by smali on 14/12/2017.
  */
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features="src/test/resources/features")
+@CucumberOptions(features="src/test/resources/features/")
 public class ProductDetailsRunner {
 }

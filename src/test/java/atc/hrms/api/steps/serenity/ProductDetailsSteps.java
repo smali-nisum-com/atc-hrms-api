@@ -37,11 +37,13 @@ public class ProductDetailsSteps {
         long current = dtBeforeAPIRequest.getMillis();
 
         // Avoid SSL validation if persist
-      //  RestAssured.useRelaxedHTTPSValidation();
+        //  RestAssured.useRelaxedHTTPSValidation();
 
         Response responseProductInformation = rest().
                 given().
                 contentType("application/json").
+                auth()
+                .oauth2(token).
                 when().
                 get(endpoint);
 

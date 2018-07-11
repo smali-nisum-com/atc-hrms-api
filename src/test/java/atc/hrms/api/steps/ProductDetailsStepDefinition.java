@@ -37,7 +37,7 @@ public class ProductDetailsStepDefinition {
         url = BASEPATH + "/auth/login";
         authToken = productDetailsSteps.authApi(url);
         assertEquals(200, authToken.getStatusCode());
-        accessToken = authToken.getBody().path("access_token").toString();
+        accessToken = authToken.getBody().path("objectData.access_token").toString();
 
     }
 
@@ -48,6 +48,7 @@ public class ProductDetailsStepDefinition {
 
     @When("^get request is made$")
     public void get_request_is_made() {
+        log.info("ürl of holidays"+url + "and Token " + accessToken);
         response = productDetailsSteps.productApi(url, accessToken);
     }
 
