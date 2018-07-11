@@ -12,6 +12,10 @@ import net.thucydides.core.annotations.Steps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+
+import static atc.hrms.api.constant.TestConstant.BASEPATH;
+import static io.restassured.RestAssured.basePath;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -24,17 +28,13 @@ public class ProductDetailsStepDefinition {
     ProductDetailsSteps productDetailsSteps;
 
     private String url;
-    private String basePath;
     private Response authToken;
     private String accessToken;
     private Response response;
 
     @Before
-    public void beforeScenarios() {
-        RestAssured.useRelaxedHTTPSValidation();
-        basePath = "http://10.4.10.108:8080";
-        url = basePath + "/auth/login";
-        log.info("url" + url);
+    public void beforeScenarios() throws IOException {
+        url = BASEPATH + "/auth/login";
         authToken = productDetailsSteps.authApi(url);
         assertEquals(200, authToken.getStatusCode());
         accessToken = authToken.getBody().path("access_token").toString();
@@ -43,31 +43,22 @@ public class ProductDetailsStepDefinition {
 
     @Given("^url is \"([^\"]*)\"$")
     public void urlIs(String endpoint) {
-
-        url = basePath + endpoint;
-        log.info("endpoint" + url);
+        url = BASEPATH + endpoint;
     }
 
     @When("^get request is made$")
     public void get_request_is_made() {
-        log.info("access token when" + accessToken + url);
-
         response = productDetailsSteps.productApi(url, accessToken);
-        log.info("response of api" + response.asString());
     }
 
     @Then("^statuscode should be (\\d+)$")
     public void statuscode_should_be(int statuscode) {
-
         assertEquals(statuscode, response.getStatusCode());
-
     }
 
     @When("^post request is made$")
-    public void post_request_is_made() {
-
+    public void post_request_is_made() throws IOException {
         response = productDetailsSteps.authApi(url);
-
     }
 
 }
